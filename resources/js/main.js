@@ -63,7 +63,7 @@ function addItem (value) {
 
 function addItemToBackend (value) {
 	var result = null;
-	payload = {'description': value};
+	var payload = {'description': value};
 	console.log(payload);
 	$.ajax({
                 type: "POST",
@@ -83,7 +83,7 @@ function renderTodoList() {
 
   for (var i = 0; i < data.todo.length; i++) {
     var value = data.todo[i].Description;
-    var id = data.todo[i].Id;
+    var id = data.todo[i].ID;
     addItemToDOM(value, id);
   }
 
@@ -150,7 +150,7 @@ function updateItemInBackend (item, completed) {
 	payload = {'completed': completed};
         $.ajax({
                 url: todolist_server + "/" + item.id,
-                type: 'POST',
+                type: 'PATCH',
 		data: payload,
                 async: false,
                 success: function(data) {

@@ -42,7 +42,7 @@ func main() {
 	router.HandleFunc("/todo-completed", getCompletedItems).Methods("GET")
 	router.HandleFunc("/todo-incomplete", getIncompleteItems).Methods("GET")
 	router.HandleFunc("/todo", createItem).Methods("POST")
-	router.HandleFunc("/todo/{id}", updateItem).Methods("PUT")
+	router.HandleFunc("/todo/{id}", updateItem).Methods("PATCH")
 	router.HandleFunc("/todo/{id}", deleteItem).Methods("DELETE")
 	handler := cors.New(cors.Options{
 		AllowedMethods: []string{"GET", "POST", "DELETE", "PATCH", "OPTIONS"},
